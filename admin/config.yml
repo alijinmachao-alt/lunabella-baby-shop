@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  repo: alijinmachao-alt/lunabella-baby-shop
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "home"
+    label: "首页设置"
+    files:
+      - name: home
+        label: 首页内容
+        file: "index.md"
+        fields:
+          - {label: "页面标题", name: title, widget: string}
+          - {label: "主标题大文字", name: headline, widget: string}
+          - {label: "描述文案", name: description, widget: text}
+          - {label: "首页大图", name: hero_image, widget: image}

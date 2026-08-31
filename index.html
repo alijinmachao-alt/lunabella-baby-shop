@@ -647,19 +647,20 @@ img{max-width:100%;display:block}
 <div><h5 data-i18n="contact_markets">Markets Served</h5><p data-i18n="contact_markets_desc">Europe, North America, Middle East, Southeast Asia, 50+ countries</p></div>
 </div>
 </div>
-<form class="contact-form" id="contactForm">
+<form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" action="/?success=1">
+<input type="hidden" name="form-name" value="contact">
 <div class="form-row">
-<div class="form-group"><label data-i18n="form_name">Your Name *</label><input type="text" required placeholder="John Smith"></div>
-<div class="form-group"><label data-i18n="form_company">Company *</label><input type="text" required placeholder="Your Company"></div>
+<div class="form-group"><label data-i18n="form_name">Your Name *</label><input type="text" name="name" required placeholder="John Smith"></div>
+<div class="form-group"><label data-i18n="form_company">Company *</label><input type="text" name="company" required placeholder="Your Company"></div>
 </div>
 <div class="form-row">
-<div class="form-group"><label data-i18n="form_email">Email *</label><input type="email" required placeholder="john@company.com"></div>
-<div class="form-group"><label data-i18n="form_country">Country *</label><input type="text" required placeholder="United States"></div>
+<div class="form-group"><label data-i18n="form_email">Email *</label><input type="email" name="email" required placeholder="john@company.com"></div>
+<div class="form-group"><label data-i18n="form_country">Country *</label><input type="text" name="country" required placeholder="United States"></div>
 </div>
 <div class="form-row">
 <div class="form-group">
 <label data-i18n="form_category">Product Category *</label>
-<select required>
+<select name="category" required>
 <option value="">Select category</option>
 <option data-i18n="form_opt1">Baby Clothes</option>
 <option data-i18n="form_opt2">Kids Clothes</option>
@@ -670,9 +671,9 @@ img{max-width:100%;display:block}
 <option data-i18n="form_opt7">Multiple Categories</option>
 </select>
 </div>
-<div class="form-group"><label data-i18n="form_qty">Estimated Quantity</label><input type="text" placeholder="e.g. 500 pcs"></div>
+<div class="form-group"><label data-i18n="form_qty">Estimated Quantity</label><input type="text" name="quantity" placeholder="e.g. 500 pcs"></div>
 </div>
-<div class="form-group"><label data-i18n="form_msg">Message / Requirements *</label><textarea required placeholder="Tell us about your project, target prices, custom requirements, etc."></textarea></div>
+<div class="form-group"><label data-i18n="form_msg">Message / Requirements *</label><textarea name="message" required placeholder="Tell us about your project, target prices, custom requirements, etc."></textarea></div>
 <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry →</button>
 </form>
 </div>
@@ -762,14 +763,61 @@ const nav=document.getElementById('nav');
 mobileToggle.addEventListener('click',()=>nav.classList.toggle('active'));
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('active')));
 
+// 产品数据管理
+let allProducts = [];
+const categoryMap = {
+  'Baby Clothes': 'baby-clothes',
+  'Kids Clothes': 'kids-clothes',
+  'Baby Accessories': 'accessories',
+  'Baby Toys': 'toys',
+  'Shoes & Bags': 'shoes-bags',
+  'Other Products': 'other'
+};
+
+async function loadProducts() {
+  try {
+    const res = await fetch('products.json');
+    const data = await res.json();
+    allProducts = data.products || [];
+    if (allProducts.length > 0) renderProducts('all');
+  } catch(e) {
+    console.log('Using default products');
+  }
+}
+
+function renderProducts(cat) {
+  const grid = document.getElementById('productGrid');
+  if (!grid || allProducts.length === 0) return;
+  const filtered = cat === 'all' ? allProducts : allProducts.filter(p => categoryMap[p.category] === cat);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" data-cat="${categoryMap[p.category] || 'other'}">
+      <div class="product-img">
+        ${p.featured ? '<span class="product-badge">HOT</span>' : ''}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">` : '👶'}
+      </div>
+      <div class="product-info">
+        <div class="product-cat">${p.category}</div>
+        <h4>${p.name}</h4>
+        <div class="product-price"><span class="from">From</span> ${p.price}</div>
+        <div class="product-meta">
+          <span>📦 MOQ ${p.moq}</span>
+          ${p.material ? `<span>✓ ${p.material}</span>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
 const productTabs=document.querySelectorAll('.product-tab');
-const productCards=document.querySelectorAll('.product-card');
 productTabs.forEach(tab=>{
 tab.addEventListener('click',()=>{
 productTabs.forEach(t=>t.classList.remove('active'));
 tab.classList.add('active');
 const cat=tab.dataset.cat;
-productCards.forEach(card=>{card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';});
+if (allProducts.length > 0) { renderProducts(cat); }
+else {
+document.querySelectorAll('.product-card').forEach(card=>{card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';});
+}
 });
 });
 function filterProducts(cat){
@@ -777,15 +825,29 @@ document.getElementById('products').scrollIntoView({behavior:'smooth'});
 setTimeout(()=>{
 productTabs.forEach(t=>t.classList.remove('active'));
 document.querySelector(`.product-tab[data-cat="${cat}"]`)?.classList.add('active');
-productCards.forEach(card=>{card.style.display=(card.dataset.cat===cat)?'block':'none';});
+if (allProducts.length > 0) { renderProducts(cat); }
+else {
+document.querySelectorAll('.product-card').forEach(card=>{card.style.display=(card.dataset.cat===cat)?'block':'none';});
+}
 },300);
 }
 
-document.getElementById('contactForm').addEventListener('submit',function(e){
-e.preventDefault();
-alert('Thank you for your inquiry! We will respond within 24 hours. You can also reach us directly at +86 13129341142 or alijinmachao@gmail.com');
-this.reset();
-});
+loadProducts();
+
+// 表单提交成功提示
+if (window.location.search.includes('success=1')) {
+  setTimeout(() => {
+    alert('Thank you for your inquiry! We will respond within 24 hours. You can also reach us directly at +86 13129341142 or alijinmachao@gmail.com');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }, 500);
+}
 </script>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/8613129341142?text=Hello%20Luna%20Bella,%20I%20am%20interested%20in%20your%20baby%20clothing%20wholesale." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="white">
+    <path d="M16.004 0C7.172 0 .008 7.164.008 15.996c0 2.818.742 5.568 2.152 7.976L0 32l8.228-2.156c2.364 1.316 5.034 2.012 7.776 2.012 8.832 0 15.996-7.164 15.996-15.996S24.836 0 16.004 0zm0 29.108c-2.428 0-4.808-.652-6.888-1.888l-.492-.292-4.884 1.28 1.3-4.764-.32-.508c-1.372-2.284-2.096-4.912-2.096-7.64 0-7.264 5.912-13.176 13.18-13.176 7.264 0 13.176 5.912 13.176 13.176s-5.912 13.18-13.176 13.18zm7.22-9.848c-.396-.198-2.34-1.156-2.704-1.288-.364-.132-.628-.198-.892.198-.264.396-1.02 1.288-1.248 1.552-.228.264-.456.297-.852.099-.396-.198-1.672-.616-3.188-1.968-1.176-1.052-1.968-2.352-2.2-2.748-.232-.396-.025-.61.173-.808.178-.178.396-.462.594-.693.198-.231.264-.396.396-.66.132-.264.066-.495-.033-.693-.099-.198-.892-2.148-1.22-2.944-.32-.782-.648-.676-.892-.688l-.76-.012c-.264 0-.693.099-1.056.495-.363.396-1.386 1.356-1.386 3.3s1.422 3.828 1.62 4.092c.198.264 2.796 4.272 6.776 5.996.946.407 1.686.65 2.262.832.952.3 1.816.257 2.502.156.764-.113 2.34-.957 2.672-1.88.332-.924.332-1.716.232-1.88-.099-.165-.363-.264-.76-.462z"/>
+  </svg>
+</a>
+
 </body>
 </html>

@@ -18,3 +18,24 @@ collections:
           - {label: "主标题大文字", name: headline, widget: string}
           - {label: "描述文案", name: description, widget: text}
           - {label: "首页大图", name: hero_image, widget: image}
+
+  - name: "products"
+    label: "产品管理"
+    files:
+      - name: products
+        label: 所有产品
+        file: "products.json"
+        fields:
+          - label: "产品列表"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "产品名称", name: "name", widget: "string"}
+              - {label: "产品分类", name: "category", widget: "select", options: ["Baby Clothes", "Kids Clothes", "Baby Accessories", "Baby Toys", "Shoes & Bags", "Other Products"]}
+              - {label: "产品图片", name: "image", widget: "image"}
+              - {label: "批发价格", name: "price", widget: "string", hint: "例如: $2.50-$3.00 / piece"}
+              - {label: "起订量 MOQ", name: "moq", widget: "string", hint: "例如: 50 pcs"}
+              - {label: "产品描述", name: "description", widget: "text"}
+              - {label: "可选尺码", name: "sizes", widget: "string", required: false, hint: "例如: 3M-24M"}
+              - {label: "材质", name: "material", widget: "string", required: false, hint: "例如: 100% Cotton"}
+              - {label: "是否推荐", name: "featured", widget: "boolean", default: false}

@@ -1,0 +1,158 @@
+{
+  "products": [
+    {
+      "name": "Baby Romper Set with Bow Tie",
+      "category": "Baby Clothes",
+      "image": "",
+      "price": "$3.50-$4.20 / piece",
+      "moq": "50 pcs",
+      "description": "Soft cotton baby romper with matching bow tie, perfect for formal occasions. Available in multiple colors and stripes.",
+      "sizes": "3M-18M",
+      "material": "100% Cotton",
+      "featured": true
+    },
+    {
+      "name": "Baby Polo Shirt Striped",
+      "category": "Baby Clothes",
+      "image": "",
+      "price": "$2.80-$3.50 / piece",
+      "moq": "50 pcs",
+      "description": "Classic striped baby polo shirt, comfortable and breathable. Multiple color options available.",
+      "sizes": "3M-24M",
+      "material": "Cotton Blend",
+      "featured": true
+    },
+    {
+      "name": "Baby Blanket 8pcs Gift Set",
+      "category": "Baby Clothes",
+      "image": "",
+      "price": "$5.00-$6.50 / set",
+      "moq": "30 sets",
+      "description": "Complete baby blanket gift set with bodysuit, bib, hat, socks and blanket. Cute animal embroidery designs.",
+      "sizes": "NB-6M",
+      "material": "100% Cotton",
+      "featured": true
+    },
+    {
+      "name": "Girls T-Shirt & Jeans Set",
+      "category": "Kids Clothes",
+      "image": "",
+      "price": "$4.00-$5.00 / set",
+      "moq": "50 sets",
+      "description": "Trendy girls t-shirt with denim jeans set. Multiple colors and prints available.",
+      "sizes": "2T-6T",
+      "material": "Cotton & Denim",
+      "featured": false
+    },
+    {
+      "name": "Kids Casual Outfit Set",
+      "category": "Kids Clothes",
+      "image": "",
+      "price": "$3.80-$4.80 / set",
+      "moq": "50 sets",
+      "description": "Comfortable casual outfit for kids, soft fabric and stylish design.",
+      "sizes": "2T-8T",
+      "material": "Cotton Blend",
+      "featured": false
+    },
+    {
+      "name": "Baby Headband & Bow Set",
+      "category": "Baby Accessories",
+      "image": "",
+      "price": "$0.80-$1.20 / piece",
+      "moq": "100 pcs",
+      "description": "Cute baby headbands with bows, soft and stretchy. Multiple colors.",
+      "sizes": "0-12M",
+      "material": "Cotton & Elastic",
+      "featured": false
+    },
+    {
+      "name": "Baby Bibs Waterproof Set",
+      "category": "Baby Accessories",
+      "image": "",
+      "price": "$1.20-$1.80 / piece",
+      "moq": "100 pcs",
+      "description": "Waterproof baby bibs with cute designs, easy to clean.",
+      "sizes": "0-24M",
+      "material": "Waterproof Polyester",
+      "featured": false
+    },
+    {
+      "name": "Baby Socks Anti-slip Set",
+      "category": "Baby Accessories",
+      "image": "",
+      "price": "$0.50-$0.80 / pair",
+      "moq": "200 pairs",
+      "description": "Soft anti-slip baby socks with cute patterns. Multiple colors.",
+      "sizes": "0-24M",
+      "material": "Cotton",
+      "featured": false
+    },
+    {
+      "name": "Baby Rattle Toy Set",
+      "category": "Baby Toys",
+      "image": "",
+      "price": "$1.50-$2.50 / set",
+      "moq": "100 sets",
+      "description": "Safe and non-toxic baby rattle toys, helps with sensory development.",
+      "sizes": "0-12M",
+      "material": "BPA-free Plastic",
+      "featured": false
+    },
+    {
+      "name": "Plush Stuffed Animal Toy",
+      "category": "Baby Toys",
+      "image": "",
+      "price": "$2.00-$3.50 / piece",
+      "moq": "50 pcs",
+      "description": "Soft plush stuffed animals, safe for babies. Multiple animal designs.",
+      "sizes": "15-25cm",
+      "material": "Plush & PP Cotton",
+      "featured": false
+    },
+    {
+      "name": "Baby Soft Sole Shoes",
+      "category": "Shoes & Bags",
+      "image": "",
+      "price": "$1.80-$2.80 / pair",
+      "moq": "100 pairs",
+      "description": "Soft sole baby shoes, comfortable for first walkers. Multiple styles.",
+      "sizes": "0-18M",
+      "material": "Soft PU & Cotton",
+      "featured": false
+    },
+    {
+      "name": "Baby Diaper Bag Backpack",
+      "category": "Shoes & Bags",
+      "image": "",
+      "price": "$6.00-$8.00 / piece",
+      "moq": "30 pcs",
+      "description": "Spacious diaper bag backpack with multiple compartments, waterproof.",
+      "sizes": "Large",
+      "material": "Waterproof Oxford",
+      "featured": false
+    },
+    {
+      "name": "Baby Feeding Bottle Set",
+      "category": "Other Products",
+      "image": "",
+      "price": "$2.50-$3.50 / set",
+      "moq": "100 sets",
+      "description": "BPA-free baby feeding bottles with anti-colic design. Multiple sizes.",
+      "sizes": "120ml-240ml",
+      "material": "BPA-free PP & Silicone",
+      "featured": false
+    },
+    {
+      "name": "Baby Bath Towel Hooded",
+      "category": "Other Products",
+      "image": "",
+      "price": "$3.00-$4.00 / piece",
+      "moq": "50 pcs",
+      "description": "Soft hooded baby bath towel, highly absorbent. Cute animal designs.",
+      "sizes": "80x80cm",
+      "material": "100% Cotton",
+      "featured": false
+    }
+  ]
+}

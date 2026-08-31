@@ -1,12 +1,869 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Bella | Premium Baby Clothing Wholesale Manufacturer</title>
+<meta name="description" content="Luna Bella - Factory-direct premium baby clothing wholesale for global retailers. OEM/ODM, low MOQ, organic cotton, ships worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f1e3d;--navy-light:#1a2b5a;--gold:#c9a96e;--gold-light:#e0c99a;
+  --white:#ffffff;--cream:#f7f5f0;--gray:#6b7280;--gray-light:#e5e7eb;
+  --text:#1f2937;--text-light:#6b7280;--shadow:0 4px 24px rgba(15,30,61,.08);
+  --shadow-lg:0 12px 48px rgba(15,30,61,.12);--radius:12px;--transition:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.2;color:var(--navy)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:600;font-size:15px;cursor:pointer;border:2px solid transparent;transition:var(--transition);letter-spacing:.3px}
+.btn-primary{background:var(--navy);color:var(--white)}
+.btn-primary:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:var(--white)}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:64px}
+.section-tag{display:inline-block;padding:6px 20px;border:1px solid var(--gold);border-radius:50px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:42px;margin-bottom:16px}
+.section-desc{color:var(--text-light);font-size:17px;max-width:640px;margin:0 auto}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-light);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:42px;height:42px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Playfair Display',serif;font-weight:700;font-size:18px}
+.logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy)}
+.logo-sub{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600}
+.nav{display:flex;align-items:center;gap:36px}
+.nav a{font-size:14px;font-weight:500;color:var(--text);transition:var(--transition);position:relative}
+.nav a:hover{color:var(--gold)}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+.nav a:hover::after{width:100%}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--gray-light);border-radius:50px;font-size:13px;font-weight:500;cursor:pointer;background:var(--white);transition:var(--transition)}
+.lang-btn:hover{border-color:var(--gold)}
+.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius);box-shadow:var(--shadow-lg);min-width:160px;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-8px);transition:var(--transition);z-index:100}
+.lang-dropdown.active{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-dropdown a{display:block;padding:10px 18px;font-size:14px;transition:var(--transition)}
+.lang-dropdown a:hover{background:var(--cream);color:var(--gold)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.mobile-toggle span{width:24px;height:2px;background:var(--navy);transition:var(--transition)}
+
+/* Hero */
+.hero{padding:140px 0 100px;background:linear-gradient(135deg,var(--cream) 0%,#fff 50%,var(--cream) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,169,110,.08) 0%,transparent 70%);border-radius:50%}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:var(--white);border:1px solid var(--gold);border-radius:50px;font-size:13px;font-weight:600;color:var(--gold);margin-bottom:24px;letter-spacing:1px}
+.hero h1{font-size:56px;margin-bottom:24px;line-height:1.1}
+.hero h1 .gold{color:var(--gold)}
+.hero-desc{font-size:18px;color:var(--text-light);margin-bottom:36px;max-width:520px}
+.hero-buttons{display:flex;gap:16px;margin-bottom:48px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px}
+.stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--navy)}
+.stat-label{font-size:13px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px}
+.hero-visual{position:relative}
+.hero-card{background:var(--white);border-radius:24px;box-shadow:var(--shadow-lg);padding:40px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--navy))}
+.hero-card-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:36px}
+.hero-card h3{font-size:24px;margin-bottom:12px}
+.hero-card p{color:var(--text-light);font-size:15px;margin-bottom:24px}
+.hero-card-features{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-card-feature{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500}
+.hero-card-feature .check{width:20px;height:20px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:11px;flex-shrink:0}
+.floating-badge{position:absolute;bottom:-20px;left:-20px;background:var(--navy);color:var(--white);padding:20px 28px;border-radius:16px;box-shadow:var(--shadow-lg)}
+.floating-badge .num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold)}
+.floating-badge .label{font-size:12px;opacity:.8}
+
+/* Categories */
+.categories{background:var(--white)}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.category-card{background:var(--cream);border-radius:20px;padding:40px 32px;transition:var(--transition);cursor:pointer;position:relative;overflow:hidden;border:1px solid transparent}
+.category-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--gold)}
+.category-icon{width:64px;height:64px;background:var(--white);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px;box-shadow:var(--shadow)}
+.category-card h3{font-size:22px;margin-bottom:12px}
+.category-card p{color:var(--text-light);font-size:14px;margin-bottom:20px}
+.category-meta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--gray-light)}
+.category-meta span{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.category-arrow{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:14px;transition:var(--transition)}
+.category-card:hover .category-arrow{background:var(--gold);transform:rotate(45deg)}
+
+/* Wholesale */
+.wholesale{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.wholesale::before{content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,169,110,.1) 0%,transparent 70%);border-radius:50%}
+.wholesale .section-title{color:var(--white)}
+.wholesale .section-desc{color:rgba(255,255,255,.7)}
+.wholesale-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;z-index:1}
+.wholesale-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px 24px;transition:var(--transition)}
+.wholesale-card:hover{background:rgba(255,255,255,.08);border-color:var(--gold);transform:translateY(-4px)}
+.wholesale-icon{font-size:36px;margin-bottom:20px}
+.wholesale-card h4{color:var(--white);font-size:18px;margin-bottom:12px;font-family:'Inter',sans-serif;font-weight:600}
+.wholesale-card p{color:rgba(255,255,255,.6);font-size:14px}
+.pricing-table{margin-top:64px;background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.pricing-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:rgba(201,169,110,.15);padding:20px 32px}
+.pricing-header span{font-weight:600;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.pricing-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:20px 32px;border-top:1px solid rgba(255,255,255,.08);align-items:center}
+.pricing-row .product-name{font-weight:500}
+.pricing-row .price{color:var(--gold);font-weight:600;font-family:'Playfair Display',serif;font-size:18px}
+.pricing-row .price-note{font-size:12px;color:rgba(255,255,255,.5)}
+
+/* Products */
+.products{background:var(--cream)}
+.product-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+.product-tab{padding:10px 24px;border-radius:50px;font-size:14px;font-weight:500;cursor:pointer;transition:var(--transition);border:1px solid var(--gray-light);background:var(--white)}
+.product-tab.active,.product-tab:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.product-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.product-img{height:220px;background:linear-gradient(135deg,var(--cream),#fff);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.product-badge{position:absolute;top:12px;left:12px;padding:4px 12px;background:var(--gold);color:var(--white);font-size:11px;font-weight:600;border-radius:50px;letter-spacing:1px}
+.product-info{padding:20px}
+.product-info h4{font-size:16px;margin-bottom:8px;font-family:'Inter',sans-serif;font-weight:600}
+.product-cat{font-size:12px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.product-price{display:flex;align-items:baseline;gap:8px;margin-bottom:12px}
+.product-price .from{font-size:12px;color:var(--text-light)}
+.product-price .amount{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy)}
+.product-price .unit{font-size:12px;color:var(--text-light)}
+.product-meta{display:flex;gap:12px;font-size:12px;color:var(--text-light)}
+.product-meta span{display:flex;align-items:center;gap:4px}
+
+/* About */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{position:relative}
+.about-img{width:100%;height:480px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:120px;position:relative;overflow:hidden}
+.about-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(201,169,110,.2),transparent 60%)}
+.about-experience{position:absolute;bottom:-30px;right:-30px;background:var(--gold);color:var(--white);padding:28px 36px;border-radius:20px;box-shadow:var(--shadow-lg)}
+.about-experience .num{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;line-height:1}
+.about-experience .label{font-size:13px;opacity:.9;margin-top:4px}
+.about-content .section-tag{margin-bottom:16px}
+.about-content h2{font-size:40px;margin-bottom:24px}
+.about-content p{color:var(--text-light);margin-bottom:20px;font-size:16px}
+.certifications{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.cert-card{text-align:center;padding:20px 12px;background:var(--cream);border-radius:12px;border:1px solid var(--gray-light)}
+.cert-icon{font-size:28px;margin-bottom:8px}
+.cert-name{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:.5px}
+
+/* Process */
+.process{background:var(--cream)}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative}
+.process-step{text-align:center;position:relative}
+.step-num{width:56px;height:56px;background:var(--navy);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin:0 auto 20px;position:relative;z-index:1}
+.process-step h4{font-size:16px;margin-bottom:8px;font-family:'Inter',sans-serif;font-weight:600}
+.process-step p{font-size:13px;color:var(--text-light)}
+.process-step:not(:last-child)::after{content:'';position:absolute;top:28px;left:calc(50% + 36px);right:calc(-50% + 36px);height:2px;background:var(--gray-light);z-index:0}
+
+/* Testimonials */
+.testimonials{background:var(--white)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.testimonial-card{background:var(--cream);border-radius:20px;padding:36px;position:relative}
+.testimonial-card::before{content:'"';position:absolute;top:20px;right:32px;font-family:'Playfair Display',serif;font-size:80px;color:var(--gold);opacity:.3;line-height:1}
+.stars{color:var(--gold);margin-bottom:16px;font-size:16px;letter-spacing:2px}
+.testimonial-text{font-size:15px;color:var(--text);margin-bottom:24px;line-height:1.7;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.author-avatar{width:48px;height:48px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:16px}
+.author-info h5{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.author-info p{font-size:12px;color:var(--text-light)}
+
+/* Contact */
+.contact{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;bottom:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,169,110,.08) 0%,transparent 70%);border-radius:50%}
+.contact .section-title{color:var(--white)}
+.contact .section-desc{color:rgba(255,255,255,.7)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;position:relative;z-index:1}
+.contact-info h3{color:var(--white);font-size:28px;margin-bottom:24px}
+.contact-info p{color:rgba(255,255,255,.7);margin-bottom:32px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.contact-icon{width:48px;height:48px;background:rgba(201,169,110,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-item h5{color:var(--white);font-size:14px;font-weight:600;margin-bottom:4px;font-family:'Inter',sans-serif}
+.contact-item p{color:rgba(255,255,255,.7);font-size:14px;margin:0}
+.contact-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:500;margin-bottom:8px;color:rgba(255,255,255,.8)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;transition:var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.1)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.4)}
+.form-group select option{background:var(--navy);color:var(--white)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;padding:14px;background:var(--gold);color:var(--white);border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:var(--transition)}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* Footer */
+.footer{background:#0a1428;color:rgba(255,255,255,.6);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo-text{color:var(--white);margin-bottom:12px}
+.footer-brand p{font-size:14px;line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:var(--transition)}
+.footer-social a:hover{background:var(--gold);color:var(--white)}
+.footer-col h5{color:var(--white);font-size:15px;font-weight:600;margin-bottom:20px;font-family:'Inter',sans-serif}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.6);margin-bottom:12px;transition:var(--transition)}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:32px;display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.footer-bottom a{color:var(--gold)}
+
+/* WhatsApp Float */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--white);box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;z-index:999;transition:var(--transition);text-decoration:none}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero h1{font-size:44px}
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .wholesale-grid{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:60px}
+  .process-steps{grid-template-columns:repeat(3,1fr);gap:32px}
+  .process-step:not(:last-child)::after{display:none}
+  .testimonial-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+  .section{padding:64px 0}
+  .section-title{font-size:32px}
+  .nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--white);flex-direction:column;padding:24px;gap:20px;border-bottom:1px solid var(--gray-light);box-shadow:var(--shadow)}
+  .nav.active{display:flex}
+  .mobile-toggle{display:flex}
+  .hero{padding:120px 0 64px}
+  .hero h1{font-size:36px}
+  .hero-stats{gap:24px}
+  .stat-num{font-size:28px}
+  .category-grid{grid-template-columns:1fr}
+  .wholesale-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-header,.pricing-row{grid-template-columns:1.5fr 1fr 1fr;padding:16px}
+  .pricing-header span:nth-child(4),.pricing-row > span:nth-child(4){display:none}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .about-experience{right:0;bottom:-20px;padding:20px 24px}
+  .about-experience .num{font-size:36px}
+}
+</style>
 </head>
 <body>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/netlify-cms@2.10.0/dist/netlify-cms.js"></script>
+
+<!-- Header -->
+<header class="header">
+<div class="container">
+<div class="header-inner">
+<a href="#home" class="logo">
+<div class="logo-mark">LB</div>
+<div>
+<div class="logo-text">Luna Bella</div>
+<div class="logo-sub">Wholesale Since 2014</div>
+</div>
+</a>
+<nav class="nav" id="nav">
+<a href="#home" data-i18n="nav_home">Home</a>
+<a href="#categories" data-i18n="nav_categories">Categories</a>
+<a href="#wholesale" data-i18n="nav_wholesale">Wholesale</a>
+<a href="#products" data-i18n="nav_products">Products</a>
+<a href="#about" data-i18n="nav_about">About</a>
+<a href="#contact" data-i18n="nav_contact">Contact</a>
+</nav>
+<div class="header-right">
+<div class="lang-select">
+<button class="lang-btn" id="langBtn">🌐 EN</button>
+<div class="lang-dropdown" id="langDropdown">
+<a href="#" data-lang="en">English</a>
+<a href="#" data-lang="fr">Français</a>
+<a href="#" data-lang="es">Español</a>
+<a href="#" data-lang="de">Deutsch</a>
+<a href="#" data-lang="it">Italiano</a>
+<a href="#" data-lang="pt">Português</a>
+<a href="#" data-lang="ru">Русский</a>
+<a href="#" data-lang="ar">العربية</a>
+</div>
+</div>
+<div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-grid">
+<div>
+<div class="hero-tag">🏭 B2B WHOLESALE MANUFACTURER</div>
+<h1>Premium Baby Clothing, <span class="gold">Wholesale</span> for Global Retailers</h1>
+<p class="hero-desc" data-i18n="hero_desc">Factory-direct organic baby clothing for boutiques, retailers and distributors worldwide. Low MOQ, OEM/ODM private label, reliable bulk shipping.</p>
+<div class="hero-buttons">
+<a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Browse Catalog</a>
+<a href="#contact" class="btn btn-outline" data-i18n="hero_btn2">Request Wholesale Quote</a>
+</div>
+<div class="hero-stats">
+<div><div class="stat-num">12+</div><div class="stat-label" data-i18n="stat1">Years Manufacturing</div></div>
+<div><div class="stat-num">300+</div><div class="stat-label" data-i18n="stat2">Retail Partners</div></div>
+<div><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat3">Countries Served</div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-card">
+<div class="hero-card-icon">👶</div>
+<h3 data-i18n="hero_card_title">Factory Direct Wholesale</h3>
+<p data-i18n="hero_card_desc">Cut out middlemen. Source premium baby clothing directly from our factory at unbeatable wholesale prices.</p>
+<div class="hero-card-features">
+<div class="hero-card-feature"><span class="check">✓</span><span data-i18n="feat1">MOQ from 50 pcs</span></div>
+<div class="hero-card-feature"><span class="check">✓</span><span data-i18n="feat2">OEM/ODM Available</span></div>
+<div class="hero-card-feature"><span class="check">✓</span><span data-i18n="feat3">Private Label</span></div>
+<div class="hero-card-feature"><span class="check">✓</span><span data-i18n="feat4">Ships Worldwide</span></div>
+</div>
+</div>
+<div class="floating-badge">
+<div class="num">100%</div>
+<div class="label" data-i18n="badge">Organic Cotton</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Categories -->
+<section class="section categories" id="categories">
+<div class="container">
+<div class="section-header">
+<div class="section-tag" data-i18n="cat_tag">Our Collections</div>
+<h2 class="section-title" data-i18n="cat_title">6 Product Categories</h2>
+<p class="section-desc" data-i18n="cat_desc">Explore our complete range of premium baby and kids products, organized for easy wholesale sourcing.</p>
+</div>
+<div class="category-grid">
+<div class="category-card" onclick="filterProducts('baby-clothes')">
+<div class="category-icon">👕</div>
+<h3 data-i18n="cat1_title">Baby Clothes</h3>
+<p data-i18n="cat1_desc">Onesies, rompers, sleepsuits, bodysuits for newborns and infants 0-24 months.</p>
+<div class="category-meta"><span data-i18n="cat1_meta">200+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+<div class="category-card" onclick="filterProducts('kids-clothes')">
+<div class="category-icon">🧒</div>
+<h3 data-i18n="cat2_title">Kids Clothes</h3>
+<p data-i18n="cat2_desc">T-shirts, dresses, pants, jackets and outfits for toddlers and kids aged 2-12 years.</p>
+<div class="category-meta"><span data-i18n="cat2_meta">180+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+<div class="category-card" onclick="filterProducts('accessories')">
+<div class="category-icon">🎀</div>
+<h3 data-i18n="cat3_title">Baby Accessories</h3>
+<p data-i18n="cat3_desc">Hats, socks, bibs, mittens, headbands and swaddles to complete every outfit.</p>
+<div class="category-meta"><span data-i18n="cat3_meta">150+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+<div class="category-card" onclick="filterProducts('toys')">
+<div class="category-icon">🧸</div>
+<h3 data-i18n="cat4_title">Baby Toys</h3>
+<p data-i18n="cat4_desc">Soft plush toys, rattles, teething toys and educational play mats for early development.</p>
+<div class="category-meta"><span data-i18n="cat4_meta">120+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+<div class="category-card" onclick="filterProducts('shoes-bags')">
+<div class="category-icon">👟</div>
+<h3 data-i18n="cat5_title">Shoes & Bags</h3>
+<p data-i18n="cat5_desc">Soft sole baby shoes, sneakers, sandals and matching backpacks for little ones.</p>
+<div class="category-meta"><span data-i18n="cat5_meta">100+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+<div class="category-card" onclick="filterProducts('other')">
+<div class="category-icon">🍼</div>
+<h3 data-i18n="cat6_title">Other Baby Products</h3>
+<p data-i18n="cat6_desc">Bedding sets, nursing covers, bath towels, feeding accessories and more baby essentials.</p>
+<div class="category-meta"><span data-i18n="cat6_meta">90+ Styles</span><div class="category-arrow">→</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Wholesale -->
+<section class="section wholesale" id="wholesale">
+<div class="container">
+<div class="section-header">
+<div class="section-tag" style="border-color:var(--gold);color:var(--gold)">WHY WHOLESALE WITH US</div>
+<h2 class="section-title">Built for Bulk Buyers</h2>
+<p class="section-desc">Everything you need for efficient wholesale sourcing — from low MOQs to custom branding and global logistics.</p>
+</div>
+<div class="wholesale-grid">
+<div class="wholesale-card">
+<div class="wholesale-icon">📦</div>
+<h4>Low MOQ</h4>
+<p>Start from just 50 pieces per style. Perfect for boutiques and small retailers testing new collections.</p>
+</div>
+<div class="wholesale-card">
+<div class="wholesale-icon">💰</div>
+<h4>Tiered Pricing</h4>
+<p>The more you order, the less you pay. Transparent volume discounts from 50 to 5000+ pieces.</p>
+</div>
+<div class="wholesale-card">
+<div class="wholesale-icon">🏷️</div>
+<h4>OEM / ODM</h4>
+<p>Private label, custom designs, your brand tags and packaging. We bring your vision to life.</p>
+</div>
+<div class="wholesale-card">
+<div class="wholesale-icon">🚢</div>
+<h4>Global Shipping</h4>
+<p>Door-to-door delivery to 50+ countries. Air, sea and express options with full tracking.</p>
+</div>
+</div>
+<div class="pricing-table">
+<div class="pricing-header">
+<span>Product Category</span><span>50-199 pcs</span><span>200-999 pcs</span><span>1000+ pcs</span>
+</div>
+<div class="pricing-row">
+<span class="product-name">Baby Rompers / Onesies</span>
+<span class="price">$3.80</span>
+<span class="price">$3.20</span>
+<span class="price">$2.60</span>
+</div>
+<div class="pricing-row">
+<span class="product-name">Kids T-Shirts / Dresses</span>
+<span class="price">$4.50</span>
+<span class="price">$3.80</span>
+<span class="price">$3.10</span>
+</div>
+<div class="pricing-row">
+<span class="product-name">Baby Accessories (hats, bibs)</span>
+<span class="price">$1.20</span>
+<span class="price">$0.95</span>
+<span class="price">$0.75</span>
+</div>
+<div class="pricing-row">
+<span class="product-name">Baby Shoes</span>
+<span class="price">$3.50</span>
+<span class="price">$2.90</span>
+<span class="price">$2.30</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Products -->
+<section class="section products" id="products">
+<div class="container">
+<div class="section-header">
+<div class="section-tag">FEATURED PRODUCTS</div>
+<h2 class="section-title">Best Sellers Catalog</h2>
+<p class="section-desc">Our most popular wholesale styles. Click a category to filter. Contact us for the full catalog with pricing.</p>
+</div>
+<div class="product-tabs" id="productTabs">
+<div class="product-tab active" data-cat="all" data-i18n="tab_all">All Products</div>
+<div class="product-tab" data-cat="baby-clothes" data-i18n="tab1">Baby Clothes</div>
+<div class="product-tab" data-cat="kids-clothes" data-i18n="tab2">Kids Clothes</div>
+<div class="product-tab" data-cat="accessories" data-i18n="tab3">Accessories</div>
+<div class="product-tab" data-cat="toys" data-i18n="tab4">Toys</div>
+<div class="product-tab" data-cat="shoes-bags" data-i18n="tab5">Shoes & Bags</div>
+<div class="product-tab" data-cat="other" data-i18n="tab6">Other</div>
+</div>
+<div class="product-grid" id="productGrid">
+<div class="product-card" data-cat="baby-clothes">
+<div class="product-img"><span class="product-badge">BEST</span>👶</div>
+<div class="product-info">
+<div class="product-cat">Baby Clothes</div>
+<h4>Organic Cotton Romper</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$2.60</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>🌿 Organic</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="baby-clothes">
+<div class="product-img"><span class="product-badge">NEW</span>🍼</div>
+<div class="product-info">
+<div class="product-cat">Baby Clothes</div>
+<h4>Sleeveless Bodysuit Set</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$2.20</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>🎨 6 Colors</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="kids-clothes">
+<div class="product-img">👧</div>
+<div class="product-info">
+<div class="product-cat">Kids Clothes</div>
+<h4>Floral Summer Dress</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$3.80</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>📏 2-8Y</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="kids-clothes">
+<div class="product-img"><span class="product-badge">HOT</span>👦</div>
+<div class="product-info">
+<div class="product-cat">Kids Clothes</div>
+<h4>Cotton T-Shirt & Shorts Set</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$4.20</span><span class="unit">/set</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>📏 3-12Y</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="accessories">
+<div class="product-img">🎩</div>
+<div class="product-info">
+<div class="product-cat">Accessories</div>
+<h4>Knit Baby Hat & Mittens</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$1.20</span><span class="unit">/set</span></div>
+<div class="product-meta"><span>📦 MOQ 100</span><span>🧶 Cotton</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="accessories">
+<div class="product-img">👶</div>
+<div class="product-info">
+<div class="product-cat">Accessories</div>
+<h4>Waterproof Baby Bib (3-pack)</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$1.80</span><span class="unit">/pack</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>💧 Waterproof</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="toys">
+<div class="product-img">🧸</div>
+<div class="product-info">
+<div class="product-cat">Toys</div>
+<h4>Plush Bear Rattle Toy</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$2.50</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 100</span><span>🌿 Non-toxic</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="toys">
+<div class="product-img">🎾</div>
+<div class="product-info">
+<div class="product-cat">Toys</div>
+<h4>Silicone Teething Ring</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$1.50</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 100</span><span>🦷 BPA Free</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="shoes-bags">
+<div class="product-img">👟</div>
+<div class="product-info">
+<div class="product-cat">Shoes & Bags</div>
+<h4>Soft Sole Baby Sneakers</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$3.20</span><span class="unit">/pair</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>👣 Anti-slip</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="shoes-bags">
+<div class="product-img">🎒</div>
+<div class="product-info">
+<div class="product-cat">Shoes & Bags</div>
+<h4>Mini Animal Backpack</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$4.00</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>🎨 8 Designs</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="other">
+<div class="product-img">🛏️</div>
+<div class="product-info">
+<div class="product-cat">Other</div>
+<h4>Organic Crib Bedding Set</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$8.50</span><span class="unit">/set</span></div>
+<div class="product-meta"><span>📦 MOQ 30</span><span>🌿 Organic</span></div>
+</div>
+</div>
+<div class="product-card" data-cat="other">
+<div class="product-img">🧴</div>
+<div class="product-info">
+<div class="product-cat">Other</div>
+<h4>Hooded Baby Bath Towel</h4>
+<div class="product-price"><span class="from">From</span><span class="amount">$3.50</span><span class="unit">/pc</span></div>
+<div class="product-meta"><span>📦 MOQ 50</span><span>🧺 Bamboo</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual">
+<div class="about-img">🏭</div>
+<div class="about-experience">
+<div class="num">12+</div>
+<div class="label">Years of Excellence</div>
+</div>
+</div>
+<div class="about-content">
+<div class="section-tag">ABOUT LUNA BELLA</div>
+<h2>Your Trusted Baby Clothing Manufacturer</h2>
+<p>Since 2014, Luna Bella has been manufacturing premium baby and children's clothing for brands, boutiques and retailers across 50+ countries. Our 8,000 sqm factory in Guangzhou, China combines traditional craftsmanship with modern production technology.</p>
+<p>We specialize in organic cotton, sustainable fabrics and safe, comfortable designs that meet the strictest international safety standards. Every piece passes rigorous quality control before shipment.</p>
+<div class="certifications">
+<div class="cert-card"><div class="cert-icon">🌿</div><div class="cert-name">GOTS Certified</div></div>
+<div class="cert-card"><div class="cert-icon">✅</div><div class="cert-name">OEKO-TEX 100</div></div>
+<div class="cert-card"><div class="cert-icon">🇺🇸</div><div class="cert-name">CPSIA Compliant</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Process -->
+<section class="section process">
+<div class="container">
+<div class="section-header">
+<div class="section-tag">HOW IT WORKS</div>
+<h2 class="section-title">Simple 5-Step Ordering Process</h2>
+<p class="section-desc">From inquiry to delivery — we make wholesale sourcing effortless for global buyers.</p>
+</div>
+<div class="process-steps">
+<div class="process-step">
+<div class="step-num">1</div>
+<h4>Send Inquiry</h4>
+<p>Tell us your product needs, quantities and target price via our form or WhatsApp.</p>
+</div>
+<div class="process-step">
+<div class="step-num">2</div>
+<h4>Get Quote</h4>
+<p>Receive a detailed wholesale quote within 24 hours with tiered pricing options.</p>
+</div>
+<div class="process-step">
+<div class="step-num">3</div>
+<h4>Sample & Approve</h4>
+<p>Order pre-production samples. Approve design, fabric and quality before bulk.</p>
+</div>
+<div class="process-step">
+<div class="step-num">4</div>
+<h4>Bulk Production</h4>
+<p>We manufacture your order with strict QC. 15-25 days for standard orders.</p>
+</div>
+<div class="process-step">
+<div class="step-num">5</div>
+<h4>Ship & Deliver</h4>
+<p>Door-to-door shipping via air, sea or express. Full tracking until delivery.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonials">
+<div class="container">
+<div class="section-header">
+<div class="section-tag">TESTIMONIALS</div>
+<h2 class="section-title">Trusted by 300+ Retailers Worldwide</h2>
+</div>
+<div class="testimonial-grid">
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"Luna Bella has been our go-to supplier for 3 years. Quality is consistent, MOQ is flexible, and their OEM team turned our designs around in 2 weeks. Highly recommended for boutique owners."</p>
+<div class="testimonial-author">
+<div class="author-avatar">SM</div>
+<div class="author-info"><h5>Sophie Martin</h5><p>Owner, Petit Bébé Boutique (France)</p></div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"We order 5000+ pieces monthly. The tiered pricing saves us significantly, and the organic cotton line is a huge hit with our customers. Shipping to Spain takes just 5 days by air."</p>
+<div class="testimonial-author">
+<div class="author-avatar">JR</div>
+<div class="author-info"><h5>Javier Rodríguez</h5><p>Procurement Manager, BabyKidd (Spain)</p></div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"Started with a 100-piece sample order and now we're stocking their full range. The private label service is excellent — our brand tags and packaging look professional. Great communication throughout."</p>
+<div class="testimonial-author">
+<div class="author-avatar">AK</div>
+<div class="author-info"><h5>Anna Kowalski</h5><p>Founder, TinyTots PL (Poland)</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+<div class="container">
+<div class="section-header">
+<div class="section-tag" style="border-color:var(--gold);color:var(--gold)">GET IN TOUCH</div>
+<h2 class="section-title">Request a Wholesale Quote</h2>
+<p class="section-desc">Tell us your needs and we'll send a detailed quote within 24 hours. Or reach us directly via phone or email.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<h3>Contact Information</h3>
+<p>We respond to all wholesale inquiries within 24 business hours. For urgent matters, reach us on WhatsApp.</p>
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div><h5>Phone / WhatsApp</h5><p>+86 13129341142</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">✉️</div>
+<div><h5>Email</h5><p>alijinmachao@gmail.com</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🏭</div>
+<div><h5>Factory</h5><p>Guangzhou, Guangdong, China</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🌍</div>
+<div><h5>Markets Served</h5><p>Europe, North America, Middle East, Southeast Asia, 50+ countries</p></div>
+</div>
+</div>
+<form class="contact-form" id="contactForm">
+<div class="form-row">
+<div class="form-group"><label>Your Name *</label><input type="text" required placeholder="John Smith"></div>
+<div class="form-group"><label>Company *</label><input type="text" required placeholder="Your Company"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Email *</label><input type="email" required placeholder="john@company.com"></div>
+<div class="form-group"><label>Country *</label><input type="text" required placeholder="United States"></div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Product Category *</label>
+<select required>
+<option value="">Select category</option>
+<option>Baby Clothes</option>
+<option>Kids Clothes</option>
+<option>Baby Accessories</option>
+<option>Baby Toys</option>
+<option>Shoes & Bags</option>
+<option>Other Baby Products</option>
+<option>Multiple Categories</option>
+</select>
+</div>
+<div class="form-group"><label>Estimated Quantity</label><input type="text" placeholder="e.g. 500 pcs"></div>
+</div>
+<div class="form-group"><label>Message / Requirements *</label><textarea required placeholder="Tell us about your project, target prices, custom requirements, etc."></textarea></div>
+<button type="submit" class="form-submit">Send Inquiry →</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-text" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">Luna Bella</div>
+<p>Premium baby clothing wholesale manufacturer since 2014. Serving 300+ retailers across 50+ countries with organic, safe and comfortable baby products.</p>
+<div class="footer-social">
+<a href="#" title="Facebook">f</a>
+<a href="#" title="Instagram">📷</a>
+<a href="#" title="LinkedIn">in</a>
+<a href="#" title="Pinterest">📌</a>
+</div>
+</div>
+<div class="footer-col">
+<h5>Products</h5>
+<a href="#categories">Baby Clothes</a>
+<a href="#categories">Kids Clothes</a>
+<a href="#categories">Baby Accessories</a>
+<a href="#categories">Baby Toys</a>
+<a href="#categories">Shoes & Bags</a>
+</div>
+<div class="footer-col">
+<h5>Company</h5>
+<a href="#about">About Us</a>
+<a href="#wholesale">Wholesale Pricing</a>
+<a href="#wholesale">OEM / ODM Service</a>
+<a href="#about">Certifications</a>
+<a href="#contact">Contact Us</a>
+</div>
+<div class="footer-col">
+<h5>Contact</h5>
+<a href="tel:+8613129341142">+86 13129341142</a>
+<a href="mailto:alijinmachao@gmail.com">alijinmachao@gmail.com</a>
+<a href="#">Guangzhou, China</a>
+<a href="#">Mon-Sat: 9:00-18:00</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Luna Bella. All rights reserved.</span>
+<span>Wholesale Baby Clothing Manufacturer | <a href="#home">lunababyclothes.com</a></span>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/8613129341142?text=Hello%20Luna%20Bella%2C%20I%27m%20interested%20in%20wholesale%20baby%20clothing" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+// i18n translations
+const translations = {
+en:{nav_home:"Home",nav_categories:"Categories",nav_wholesale:"Wholesale",nav_products:"Products",nav_about:"About",nav_contact:"Contact",hero_desc:"Factory-direct organic baby clothing for boutiques, retailers and distributors worldwide. Low MOQ, OEM/ODM private label, reliable bulk shipping.",hero_btn1:"Browse Catalog",hero_btn2:"Request Wholesale Quote",stat1:"Years Manufacturing",stat2:"Retail Partners",stat3:"Countries Served",hero_card_title:"Factory Direct Wholesale",hero_card_desc:"Cut out middlemen. Source premium baby clothing directly from our factory at unbeatable wholesale prices.",feat1:"MOQ from 50 pcs",feat2:"OEM/ODM Available",feat3:"Private Label",feat4:"Ships Worldwide",badge:"Organic Cotton",cat_tag:"Our Collections",cat_title:"6 Product Categories",cat_desc:"Explore our complete range of premium baby and kids products, organized for easy wholesale sourcing.",cat1_title:"Baby Clothes",cat1_desc:"Onesies, rompers, sleepsuits, bodysuits for newborns and infants 0-24 months.",cat1_meta:"200+ Styles",cat2_title:"Kids Clothes",cat2_desc:"T-shirts, dresses, pants, jackets and outfits for toddlers and kids aged 2-12 years.",cat2_meta:"180+ Styles",cat3_title:"Baby Accessories",cat3_desc:"Hats, socks, bibs, mittens, headbands and swaddles to complete every outfit.",cat3_meta:"150+ Styles",cat4_title:"Baby Toys",cat4_desc:"Soft plush toys, rattles, teething toys and educational play mats for early development.",cat4_meta:"120+ Styles",cat5_title:"Shoes & Bags",cat5_desc:"Soft sole baby shoes, sneakers, sandals and matching backpacks for little ones.",cat5_meta:"100+ Styles",cat6_title:"Other Baby Products",cat6_desc:"Bedding sets, nursing covers, bath towels, feeding accessories and more baby essentials.",cat6_meta:"90+ Styles",tab_all:"All Products",tab1:"Baby Clothes",tab2:"Kids Clothes",tab3:"Accessories",tab4:"Toys",tab5:"Shoes & Bags",tab6:"Other"},
+fr:{nav_home:"Accueil",nav_categories:"Catégories",nav_wholesale:"Gros",nav_products:"Produits",nav_about:"À propos",nav_contact:"Contact",hero_desc:"Vêtements bébé bio en direct d'usine pour boutiques, détaillants et distributeurs dans le monde. MOQ faible, OEM/ODM, livraison fiable.",hero_btn1:"Voir le Catalogue",hero_btn2:"Demander un Devis",stat1:"Ans de Fabrication",stat2:"Partenaires Détail",stat3:"Pays Desservis",hero_card_title:"Gros Direct Usine",hero_card_desc:"Évitez les intermédiaires. Approvisionnez-vous en vêtements bébé premium directement à notre usine.",feat1:"MOQ dès 50 pcs",feat2:"OEM/ODM Disponible",feat3:"Marque Privée",feat4:"Livraison Mondiale",badge:"Coton Bio",cat_tag:"Nos Collections",cat_title:"6 Catégories de Produits",cat_desc:"Découvrez notre gamme complète de produits bébé et enfants premium.",cat1_title:"Vêtements Bébé",cat1_desc:"Bodies, barboteuses, pyjamas pour nouveau-nés et nourrissons 0-24 mois.",cat1_meta:"200+ Modèles",cat2_title:"Vêtements Enfants",cat2_desc:"T-shirts, robes, pantalons, vestes pour tout-petits et enfants 2-12 ans.",cat2_meta:"180+ Modèles",cat3_title:"Accessoires Bébé",cat3_desc:"Chapeaux, chaussettes, bavoirs, moufles, bandeaux et langes.",cat3_meta:"150+ Modèles",cat4_title:"Jouets Bébé",cat4_desc:"Peluches douces, hochets, jouets de dentition et tapis d'éveil.",cat4_meta:"120+ Modèles",cat5_title:"Chaussures & Sacs",cat5_desc:"Chaussures bébé semelle souple, baskets, sandales et sacs à dos.",cat5_meta:"100+ Modèles",cat6_title:"Autres Produits Bébé",cat6_desc:"Parures de lit, cape d'allaitement, serviettes de bain, accessoires de repas.",cat6_meta:"90+ Modèles",tab_all:"Tous",tab1:"Vêtements Bébé",tab2:"Vêtements Enfants",tab3:"Accessoires",tab4:"Jouets",tab5:"Chaussures & Sacs",tab6:"Autres"},
+es:{nav_home:"Inicio",nav_categories:"Categorías",nav_wholesale:"Mayorista",nav_products:"Productos",nav_about:"Nosotros",nav_contact:"Contacto",hero_desc:"Ropa de bebé orgánica directa de fábrica para boutiques, minoristas y distribuidores mundiales. MOQ bajo, OEM/ODM, envío confiable.",hero_btn1:"Ver Catálogo",hero_btn2:"Solicitar Cotización",stat1:"Años de Fabricación",stat2:"Socios Minoristas",stat3:"Países Atendidos",hero_card_title:"Mayorista Directo de Fábrica",hero_card_desc:"Sin intermediarios. Compra ropa de bebé premium directamente de nuestra fábrica a precios inmejorables.",feat1:"MOQ desde 50 pz",feat2:"OEM/ODM Disponible",feat3:"Marca Privada",feat4:"Envío Mundial",badge:"Algodón Orgánico",cat_tag:"Nuestras Colecciones",cat_title:"6 Categorías de Productos",cat_desc:"Explora nuestra gama completa de productos premium para bebés y niños.",cat1_title:"Ropa de Bebé",cat1_desc:"Mamelucos, peleles, pijamas para recién nacidos y bebés 0-24 meses.",cat1_meta:"200+ Estilos",cat2_title:"Ropa Infantil",cat2_desc:"Camisetas, vestidos, pantalones, chaquetas para niños 2-12 años.",cat2_meta:"180+ Estilos",cat3_title:"Accesorios Bebé",cat3_desc:"Gorros, calcetines, baberos, manoplas, diademas y mantas.",cat3_meta:"150+ Estilos",cat4_title:"Juguetes Bebé",cat4_desc:"Peluches suaves, sonajeros, mordedores y tapetes educativos.",cat4_meta:"120+ Estilos",cat5_title:"Zapatos & Bolsos",cat5_desc:"Zapatos de suela blanda, zapatillas, sandalias y mochilas.",cat5_meta:"100+ Estilos",cat6_title:"Otros Productos",cat6_desc:"Juego de cama, capas de lactancia, toallas de baño, accesorios de alimentación.",cat6_meta:"90+ Estilos",tab_all:"Todos",tab1:"Ropa Bebé",tab2:"Ropa Infantil",tab3:"Accesorios",tab4:"Juguetes",tab5:"Zapatos & Bolsos",tab6:"Otros"},
+de:{nav_home:"Startseite",nav_categories:"Kategorien",nav_wholesale:"Großhandel",nav_products:"Produkte",nav_about:"Über uns",nav_contact:"Kontakt",hero_desc:"Bio-Babykleidung direkt ab Werk für Boutiquen, Händler und Distributoren weltweit. Niedriger MOQ, OEM/ODM, zuverlässiger Versand.",hero_btn1:"Katalog ansehen",hero_btn2:"Großhandelsangebot",stat1:"Jahre Fertigung",stat2:"Einzelhandelspartner",stat3:"Länder beliefert",hero_card_title:"Großhandel direkt ab Werk",hero_card_desc:"Ohne Zwischenhändler. Beziehen Sie Premium-Babykleidung direkt aus unserer Fabrik.",feat1:"MOQ ab 50 Stk",feat2:"OEM/ODM verfügbar",feat3:"Private Label",feat4:"Weltweiter Versand",badge:"Bio-Baumwolle",cat_tag:"Unsere Kollektionen",cat_title:"6 Produktkategorien",cat_desc:"Entdecken Sie unser komplettes Sortiment an Premium-Baby- und Kinderprodukten.",cat1_title:"Babykleidung",cat1_desc:"Bodies, Strampler, Schlafanzüge für Neugeborene und Säuglinge 0-24 Monate.",cat1_meta:"200+ Stile",cat2_title:"Kinderkleidung",cat2_desc:"T-Shirts, Kleider, Hosen, Jacken für Kleinkinder und Kinder 2-12 Jahre.",cat2_meta:"180+ Stile",cat3_title:"Baby-Accessoires",cat3_desc:"Mützen, Socken, Lätzchen, Fäustlinge, Stirnbänder und Pucktücher.",cat3_meta:"150+ Stile",cat4_title:"Babyspielzeug",cat4_desc:"Weiche Plüschtiere, Rasseln, Beißringe und Lernspielmatten.",cat4_meta:"120+ Stile",cat5_title:"Schuhe & Taschen",cat5_desc:"Baby-Schuhe mit weicher Sohle, Sneaker, Sandalen und Rucksäcke.",cat5_meta:"100+ Stile",cat6_title:"Andere Babyprodukte",cat6_desc:"Bettwäsche-Sets, Stilltücher, Badetücher, Fütterungszubehör.",cat6_meta:"90+ Stile",tab_all:"Alle",tab1:"Babykleidung",tab2:"Kinderkleidung",tab3:"Accessoires",tab4:"Spielzeug",tab5:"Schuhe & Taschen",tab6:"Andere"},
+it:{nav_home:"Home",nav_categories:"Categorie",nav_wholesale:"Ingrosso",nav_products:"Prodotti",nav_about:"Chi siamo",nav_contact:"Contatti",hero_desc:"Abbigliamento bambino bio diretto dalla fabbrica per boutique, rivenditori e distributori mondiali. MOQ basso, OEM/ODM, spedizione affidabile.",hero_btn1:"Sfoglia Catalogo",hero_btn2:"Richiedi Preventivo",stat1:"Anni di Produzione",stat2:"Partner Rivenditori",stat3:"Paesi Serviti",hero_card_title:"Ingrosso Diretto Fabbrica",hero_card_desc:"Senza intermediari. Acquista abbigliamento bambino premium direttamente dalla nostra fabbrica.",feat1:"MOQ da 50 pz",feat2:"OEM/ODM Disponibile",feat3:"Marchio Privato",feat4:"Spedizione Mondiale",badge:"Cotone Bio",cat_tag:"Le Nostre Collezioni",cat_title:"6 Categorie di Prodotti",cat_desc:"Esplora la nostra gamma completa di prodotti premium per neonati e bambini.",cat1_title:"Abbigliamento Neonato",cat1_desc:"Tutine, body, pigiami per neonati e lattanti 0-24 mesi.",cat1_meta:"200+ Stili",cat2_title:"Abbigliamento Bambino",cat2_desc:"Magliette, vestiti, pantaloni, giacche per bambini 2-12 anni.",cat2_meta:"180+ Stili",cat3_title:"Accessori Neonato",cat3_desc:"Cappellini, calzini, bavaglini, guantini, fasce e fasce swaddle.",cat3_meta:"150+ Stili",cat4_title:"Giocattoli Neonato",cat4_desc:"Peluche morbidi, sonagliini, giochi dentizione e tappeti educativi.",cat4_meta:"120+ Stili",cat5_title:"Scarpe & Borse",cat5_desc:"Scarpe neonato suola morbida, sneakers, sandali e zainetti.",cat5_meta:"100+ Stili",cat6_title:"Altri Prodotti",cat6_desc:"Set biancheria letto, fasce allattamento, asciugamani bagno, accessori pappa.",cat6_meta:"90+ Stili",tab_all:"Tutti",tab1:"Neonato",tab2:"Bambino",tab3:"Accessori",tab4:"Giocattoli",tab5:"Scarpe & Borse",tab6:"Altri"},
+pt:{nav_home:"Início",nav_categories:"Categorias",nav_wholesale:"Atacado",nav_products:"Produtos",nav_about:"Sobre",nav_contact:"Contato",hero_desc:"Roupas de bebê orgânicas direto da fábrica para boutiques, varejistas e distribuidores mundiais. MOQ baixo, OEM/ODM, envio confiável.",hero_btn1:"Ver Catálogo",hero_btn2:"Solicitar Cotação",stat1:"Anos de Fabricação",stat2:"Parceiros Varejistas",stat3:"Países Atendidos",hero_card_title:"Atacado Direto da Fábrica",hero_card_desc:"Sem intermediários. Compre roupas de bebê premium diretamente da nossa fábrica.",feat1:"MOQ a partir 50 un",feat2:"OEM/ODM Disponível",feat3:"Marca Própria",feat4:"Envio Mundial",badge:"Algodão Orgânico",cat_tag:"Nossas Coleções",cat_title:"6 Categorias de Produtos",cat_desc:"Explore nossa linha completa de produtos premium para bebês e crianças.",cat1_title:"Roupas de Bebê",cat1_desc:"Macacões, bodies, pijamas para recém-nascidos e bebês 0-24 meses.",cat1_meta:"200+ Estilos",cat2_title:"Roupas Infantis",cat2_desc:"Camisetas, vestidos, calças, jaquetas para crianças 2-12 anos.",cat2_meta:"180+ Estilos",cat3_title:"Acessórios Bebê",cat3_desc:"Chapéus, meias, babadores, luvinhas, faixas e mantas swaddle.",cat3_meta:"150+ Estilos",cat4_title:"Brinquedos Bebê",cat4_desc:"Pelúcias macias, chocalhos, mordedores e tapetes educativos.",cat4_meta:"120+ Estilos",cat5_title:"Calçados & Bolsas",cat5_desc:"Sapatos de sola macia, tênis, sandálias e mochilas.",cat5_meta:"100+ Estilos",cat6_title:"Outros Produtos",cat6_desc:"Jogos de cama, capas de amamentação, toalhas de banho, acessórios alimentação.",cat6_meta:"90+ Estilos",tab_all:"Todos",tab1:"Roupas Bebê",tab2:"Roupas Infantis",tab3:"Acessórios",tab4:"Brinquedos",tab5:"Calçados & Bolsas",tab6:"Outros"},
+ru:{nav_home:"Главная",nav_categories:"Категории",nav_wholesale:"Опт",nav_products:"Товары",nav_about:"О нас",nav_contact:"Контакты",hero_desc:"Органическая детская одежда напрямую с фабрики для бутиков, розничных продавцов и дистрибьюторов по всему миру. Низкий MOQ, OEM/ODM, надежная доставка.",hero_btn1:"Каталог",hero_btn2:"Запросить прайс",stat1:"Лет производству",stat2:"Партнеров",stat3:"Стран доставки",hero_card_title:"Опт напрямую с фабрики",hero_card_desc:"Без посредников. Закупайте премиальную детскую одежду напрямую с нашей фабрики.",feat1:"MOQ от 50 шт",feat2:"OEM/ODM",feat3:"Частная марка",feat4:"Доставка по миру",badge:"Органический хлопок",cat_tag:"Наши коллекции",cat_title:"6 категорий товаров",cat_desc:"Изучите наш полный ассортимент премиальных товаров для младенцев и детей.",cat1_title:"Одежда для младенцев",cat1_desc:"Комбинезоны, боди, пижамы для новорожденных 0-24 мес.",cat1_meta:"200+ стилей",cat2_title:"Детская одежда",cat2_desc:"Футболки, платья, брюки, куртки для детей 2-12 лет.",cat2_meta:"180+ стилей",cat3_title:"Аксессуары",cat3_desc:"Шапочки, носочки, слюнявчики, варежки, повязки, пеленки.",cat3_meta:"150+ стилей",cat4_title:"Игрушки",cat4_desc:"Мягкие игрушки, погремушки, прорезыватели, развивающие коврики.",cat4_meta:"120+ стилей",cat5_title:"Обувь и сумки",cat5_desc:"Детская обувь с мягкой подошвой, кроссовки, сандалии, рюкзаки.",cat5_meta:"100+ стилей",cat6_title:"Другие товары",cat6_desc:"Постельное белье, накидки для кормления, полотенца, аксессуары для кормления.",cat6_meta:"90+ стилей",tab_all:"Все",tab1:"Одежда младенцев",tab2:"Детская одежда",tab3:"Аксессуары",tab4:"Игрушки",tab5:"Обувь и сумки",tab6:"Другое"},
+ar:{nav_home:"الرئيسية",nav_categories:"الفئات",nav_wholesale:"الجملة",nav_products:"المنتجات",nav_about:"من نحن",nav_contact:"اتصل بنا",hero_desc:"ملابس أطفال عضوية مباشرة من المصنع للبوتيكات وتجار التجزئة والموزعين حول العالم. حد أدنى منخفض، OEM/ODM، شحن موثوق.",hero_btn1:"تصفح الكتالوج",hero_btn2:"طلب عرض سعر",stat1:"سنوات التصنيع",stat2:"شركاء التجزئة",stat3:"دول يتم التوريد لها",hero_card_title:"الجملة مباشرة من المصنع",hero_card_desc:"بدون وسطاء. اشترِ ملابس أطفال فاخرة مباشرة من مصنعنا بأسعار الجملة.",feat1:"حد أدنى 50 قطعة",feat2:"OEM/ODM متاح",feat3:"علامة خاصة",feat4:"شحن عالمي",badge:"قطن عضوي",cat_tag:"مجموعاتنا",cat_title:"6 فئات منتجات",cat_desc:"استكشف مجموعتنا الكاملة من منتجات الأطفال الفاخرة.",cat1_title:"ملابس الرضع",cat1_desc:"بدلات، بادي، بيجاما للرضع حديثي الولادة 0-24 شهر.",cat1_meta:"200+ تصميم",cat2_title:"ملابس الأطفال",cat2_desc:"قمصان، فساتين، بناطيل، سترات للأطفال 2-12 سنة.",cat2_meta:"180+ تصميم",cat3_title:"إكسسوارات الأطفال",cat3_desc:"قبعات، جوارب، مريلات، قفازات، عصابات رأس، بطانيات.",cat3_meta:"150+ تصميم",cat4_title:"ألعاب الأطفال",cat4_desc:"دمى ناعمة، خشخشة، ألعاب تسنين، حصائر تعليمية.",cat4_meta:"120+ تصميم",cat5_title:"أحذية وحقائب",cat5_desc:"أحذية بنعل ناعم، حذاء رياضي، صندل، حقائب ظهر.",cat5_meta:"100+ تصميم",cat6_title:"منتجات أخرى",cat6_desc:"مجموعات أسرّة، عباءات رضاعة، مناشف استحمام، إكسسوارات تغذية.",cat6_meta:"90+ تصميم",tab_all:"الكل",tab1:"ملابس الرضع",tab2:"ملابس الأطفال",tab3:"الإكسسوارات",tab4:"الألعاب",tab5:"الأحذية والحقائب",tab6:"أخرى"}
+};
+
+// Language switcher
+const langBtn=document.getElementById('langBtn');
+const langDropdown=document.getElementById('langDropdown');
+langBtn.addEventListener('click',e=>{e.stopPropagation();langDropdown.classList.toggle('active')});
+document.addEventListener('click',()=>langDropdown.classList.remove('active'));
+document.querySelectorAll('[data-lang]').forEach(a=>{
+a.addEventListener('click',e=>{
+e.preventDefault();
+const lang=a.dataset.lang;
+setLanguage(lang);
+langDropdown.classList.remove('active');
+});
+});
+
+function setLanguage(lang){
+const t=translations[lang]||translations.en;
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key=el.dataset.i18n;
+if(t[key])el.textContent=t[key];
+});
+langBtn.textContent='🌐 '+lang.toUpperCase();
+document.documentElement.lang=lang;
+if(lang==='ar'){document.body.style.direction='rtl';}else{document.body.style.direction='ltr';}
+localStorage.setItem('lang',lang);
+}
+// Restore saved language
+const savedLang=localStorage.getItem('lang')||'en';
+setLanguage(savedLang);
+
+// Mobile menu
+const mobileToggle=document.getElementById('mobileToggle');
+const nav=document.getElementById('nav');
+mobileToggle.addEventListener('click',()=>nav.classList.toggle('active'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('active')));
+
+// Product filter
+const productTabs=document.querySelectorAll('.product-tab');
+const productCards=document.querySelectorAll('.product-card');
+productTabs.forEach(tab=>{
+tab.addEventListener('click',()=>{
+productTabs.forEach(t=>t.classList.remove('active'));
+tab.classList.add('active');
+const cat=tab.dataset.cat;
+productCards.forEach(card=>{
+card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';
+});
+});
+});
+function filterProducts(cat){
+document.getElementById('products').scrollIntoView({behavior:'smooth'});
+setTimeout(()=>{
+productTabs.forEach(t=>t.classList.remove('active'));
+document.querySelector(`.product-tab[data-cat="${cat}"]`)?.classList.add('active');
+productCards.forEach(card=>{card.style.display=(card.dataset.cat===cat)?'block':'none';});
+},300);
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit',function(e){
+e.preventDefault();
+alert('Thank you for your inquiry! We will respond within 24 hours. You can also reach us directly at +86 13129341142 or alijinmachao@gmail.com');
+this.reset();
+});
+
+// Header scroll effect
+window.addEventListener('scroll',()=>{
+const header=document.querySelector('.header');
+if(window.scrollY>50){header.style.boxShadow='0 2px 20px rgba(15,30,61,.08)';}else{header.style.boxShadow='none';}
+});
+</script>
 </body>
 </html>

@@ -10,11 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#8BA8C0;--blue-dark:#6E8FA8;--blue-light:#A8C0D4;--blue-accent:#C0D4E0;
+  --blue:#A8B8C0;--blue-dark:#8FA0AA;--blue-light:#C0CCD4;
   --accent:#C9A8A0;--accent-light:#DCC0BA;--accent-dark:#B08E86;
+  --apricot:#E8D8C0;--khaki:#E0D0B8;--pink-light:#F0D8D0;--gray-beige:#C8C0B8;
   --white:#ffffff;--cream:#FAF7F2;--light-gray:#F5F0E8;--gray:#7A7A7A;--gray-light:#E5DFD5;
-  --text:#4A4A4A;--text-light:#7A7A7A;--shadow:0 2px 12px rgba(139,168,192,.12);
-  --shadow-lg:0 8px 32px rgba(139,168,192,.18);--transition:all .3s ease;
+  --text:#4A4A4A;--text-light:#7A7A7A;--shadow:0 2px 12px rgba(168,184,192,.15);
+  --shadow-lg:0 8px 32px rgba(168,184,192,.20);--transition:all .3s ease;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -25,7 +26,7 @@ img{max-width:100%;display:block}
 .container{max-width:1280px;margin:0 auto;padding:0 20px}
 
 /* Top Bar */
-.topbar{background:var(--blue);color:var(--white);padding:8px 0;font-size:13px}
+.topbar{background:#6E7F88;color:var(--white);padding:8px 0;font-size:13px}
 .topbar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .topbar-left{display:flex;gap:24px;flex-wrap:wrap}
 .topbar-item{display:flex;align-items:center;gap:6px}
@@ -57,24 +58,24 @@ img{max-width:100%;display:block}
 .mobile-toggle span{width:26px;height:2px;background:var(--blue);transition:var(--transition)}
 
 /* Hero */
-.hero{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 50%,var(--blue-light) 100%);color:var(--white);padding:80px 0;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#A8B8C0 0%,#C5CFD4 25%,#E8D8C0 55%,#F0D8D0 80%,#E8D0C8 100%);color:var(--text);padding:80px 0;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);border-radius:50%}
 .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;position:relative;z-index:1}
-.hero-tag{display:inline-block;padding:6px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:50px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-.hero h1{font-size:48px;color:var(--white);margin-bottom:20px;line-height:1.15}
-.hero h1 span{color:var(--accent-light)}
-.hero-desc{font-size:17px;opacity:.9;margin-bottom:32px;max-width:560px}
+.hero-tag{display:inline-block;padding:6px 16px;background:rgba(255,255,255,.5);border:1px solid rgba(74,74,74,.2);border-radius:50px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:var(--text)}
+.hero h1{font-size:48px;color:var(--text);margin-bottom:20px;line-height:1.15}
+.hero h1 span{color:var(--accent-dark)}
+.hero-desc{font-size:17px;color:var(--text-light);margin-bottom:32px;max-width:560px}
 .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer;border:2px solid transparent;transition:var(--transition);letter-spacing:.5px;text-transform:uppercase}
-.btn-white{background:var(--white);color:var(--blue)}
+.btn-white{background:var(--white);color:var(--blue-dark)}
 .btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.btn-outline-white{background:transparent;color:var(--white);border-color:var(--white)}
-.btn-outline-white:hover{background:var(--white);color:var(--blue)}
+.btn-outline-white{background:transparent;color:var(--text);border-color:var(--text)}
+.btn-outline-white:hover{background:var(--text);color:var(--white)}
 .btn-blue{background:var(--blue);color:var(--white)}
 .btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px)}
-.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.2)}
-.hero-stat .num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:var(--accent-light)}
-.hero-stat .label{font-size:13px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(74,74,74,.15)}
+.hero-stat .num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:var(--accent-dark)}
+.hero-stat .label{font-size:13px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px}
 .hero-visual{position:relative}
 .hero-card{background:var(--white);border-radius:12px;padding:32px;box-shadow:var(--shadow-lg);color:var(--text)}
 .hero-card h3{font-size:22px;color:var(--blue);margin-bottom:16px}
@@ -92,8 +93,14 @@ img{max-width:100%;display:block}
 .category-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;transition:var(--transition);box-shadow:var(--shadow);height:280px}
 .category-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
 .category-card-img{width:100%;height:100%;background:linear-gradient(135deg,var(--cream),var(--light-gray));display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
-.category-card-label{position:absolute;bottom:0;left:0;right:0;background:var(--blue);color:var(--white);padding:16px 20px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center}
-.category-card:hover .category-card-label{background:var(--blue-dark)}
+.cat-1 .category-card-img{background:linear-gradient(135deg,#A8B8C0,#C5CFD4)}
+.cat-2 .category-card-img{background:linear-gradient(135deg,#E8D8C0,#F0E4D0)}
+.cat-3 .category-card-img{background:linear-gradient(135deg,#E0D0B8,#E8DCC8)}
+.cat-4 .category-card-img{background:linear-gradient(135deg,#C9A8A0,#DCC0BA)}
+.cat-5 .category-card-img{background:linear-gradient(135deg,#F0D8D0,#F5E0D8)}
+.cat-6 .category-card-img{background:linear-gradient(135deg,#C8C0B8,#D5CEC6)}
+.category-card-label{position:absolute;bottom:0;left:0;right:0;background:rgba(74,74,74,.85);color:var(--white);padding:16px 20px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center;backdrop-filter:blur(4px)}
+.category-card:hover .category-card-label{background:rgba(74,74,74,.95)}
 
 /* Products */
 .products{padding:70px 0;background:var(--light-gray)}
@@ -121,7 +128,7 @@ img{max-width:100%;display:block}
 .wholesale-card h4{font-size:17px;margin-bottom:10px;color:var(--blue)}
 .wholesale-card p{font-size:14px;color:var(--text-light)}
 .pricing-table{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--gray-light)}
-.pricing-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:var(--blue);color:var(--white);padding:18px 28px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.pricing-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;background:#6E7F88;color:var(--white);padding:18px 28px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
 .pricing-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 28px;border-top:1px solid var(--gray-light);align-items:center;font-size:14px}
 .pricing-row:nth-child(even){background:var(--light-gray)}
 .pricing-row .price{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--blue);font-size:16px}
@@ -150,29 +157,29 @@ img{max-width:100%;display:block}
 .process-step p{font-size:13px;color:var(--text-light)}
 
 /* Contact */
-.contact{padding:70px 0;background:var(--blue);color:var(--white)}
-.contact .section-title{color:var(--white)}
-.contact .section-desc{color:rgba(255,255,255,.8)}
+.contact{padding:70px 0;background:linear-gradient(135deg,#E8D8C0 0%,#F0E4D0 40%,#F0D8D0 100%);color:var(--text)}
+.contact .section-title{color:var(--text)}
+.contact .section-desc{color:var(--text-light)}
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px}
-.contact-info h3{color:var(--white);font-size:24px;margin-bottom:20px}
-.contact-info p{color:rgba(255,255,255,.8);margin-bottom:28px}
+.contact-info h3{color:var(--text);font-size:24px;margin-bottom:20px}
+.contact-info p{color:var(--text-light);margin-bottom:28px}
 .contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
-.contact-icon{width:44px;height:44px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.contact-item h5{color:var(--white);font-size:14px;margin-bottom:4px;font-family:'Montserrat',sans-serif}
-.contact-item p{color:rgba(255,255,255,.8);font-size:14px;margin:0}
-.contact-form{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:36px}
+.contact-icon{width:44px;height:44px;background:rgba(74,74,74,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-item h5{color:var(--text);font-size:14px;margin-bottom:4px;font-family:'Montserrat',sans-serif}
+.contact-item p{color:var(--text-light);font-size:14px;margin:0}
+.contact-form{background:rgba(255,255,255,.6);border:1px solid rgba(74,74,74,.1);border-radius:10px;padding:36px;backdrop-filter:blur(8px)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:rgba(255,255,255,.9)}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:var(--white);font-size:14px;font-family:'Open Sans',sans-serif;transition:var(--transition)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent-light);background:rgba(255,255,255,.15)}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.5)}
-.form-group select option{background:var(--blue);color:var(--white)}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.7);border:1px solid rgba(74,74,74,.15);border-radius:6px;color:var(--text);font-size:14px;font-family:'Open Sans',sans-serif;transition:var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);background:rgba(255,255,255,.9)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-light)}
+.form-group select option{background:var(--white);color:var(--text)}
 .form-submit{width:100%;padding:14px;background:var(--accent);color:var(--white);border:none;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:var(--transition);text-transform:uppercase;letter-spacing:1px}
 .form-submit:hover{background:var(--accent-dark);transform:translateY(-2px)}
 
 /* Footer */
-.footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 0 24px}
+.footer{background:#4A4A4A;color:rgba(255,255,255,.7);padding:60px 0 24px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
 .footer-brand .logo-text{color:var(--white);font-size:24px;margin-bottom:12px}
 .footer-brand p{font-size:14px;line-height:1.7;margin-bottom:20px}
@@ -340,27 +347,27 @@ img{max-width:100%;display:block}
 <p class="section-desc" data-i18n="cat_desc">Explore our complete range of premium baby and kids products, organized for easy wholesale sourcing.</p>
 </div>
 <div class="category-grid">
-<div class="category-card" onclick="filterProducts('baby-clothes')">
+<div class="category-card cat-1" onclick="filterProducts('baby-clothes')">
 <div class="category-card-img">👶</div>
 <div class="category-card-label" data-i18n="cat1">Baby Clothes</div>
 </div>
-<div class="category-card" onclick="filterProducts('kids-clothes')">
+<div class="category-card cat-2" onclick="filterProducts('kids-clothes')">
 <div class="category-card-img">🧒</div>
 <div class="category-card-label" data-i18n="cat2">Kids Clothes</div>
 </div>
-<div class="category-card" onclick="filterProducts('accessories')">
+<div class="category-card cat-3" onclick="filterProducts('accessories')">
 <div class="category-card-img">🎀</div>
 <div class="category-card-label" data-i18n="cat3">Baby Accessories</div>
 </div>
-<div class="category-card" onclick="filterProducts('toys')">
+<div class="category-card cat-4" onclick="filterProducts('toys')">
 <div class="category-card-img">🧸</div>
 <div class="category-card-label" data-i18n="cat4">Baby Toys</div>
 </div>
-<div class="category-card" onclick="filterProducts('shoes-bags')">
+<div class="category-card cat-5" onclick="filterProducts('shoes-bags')">
 <div class="category-card-img">👟</div>
 <div class="category-card-label" data-i18n="cat5">Shoes & Bags</div>
 </div>
-<div class="category-card" onclick="filterProducts('other')">
+<div class="category-card cat-6" onclick="filterProducts('other')">
 <div class="category-card-img">🍼</div>
 <div class="category-card-label" data-i18n="cat6">Other Products</div>
 </div>

@@ -10,10 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#003399;--blue-dark:#002266;--blue-light:#1a4daf;--blue-accent:#2d5fcc;
-  --white:#ffffff;--light-gray:#f5f6fa;--gray:#6b7280;--gray-light:#e5e7eb;
-  --text:#333333;--text-light:#666666;--shadow:0 2px 12px rgba(0,51,153,.08);
-  --shadow-lg:0 8px 32px rgba(0,51,153,.12);--transition:all .3s ease;
+  --blue:#5B7B9A;--blue-dark:#44607A;--blue-light:#7A99B5;--blue-accent:#8FB0CC;
+  --accent:#A67B5B;--accent-light:#C49A7B;--accent-dark:#8B6548;
+  --white:#ffffff;--cream:#F8F4EE;--light-gray:#F5F2ED;--gray:#7A7A7A;--gray-light:#E5E0D8;
+  --text:#3A3A3A;--text-light:#7A7A7A;--shadow:0 2px 12px rgba(91,123,154,.10);
+  --shadow-lg:0 8px 32px rgba(91,123,154,.15);--transition:all .3s ease;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,7 +37,7 @@ img{max-width:100%;display:block}
 .header{background:var(--white);border-bottom:3px solid var(--blue);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:50px;height:50px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px}
+.logo-mark{width:50px;height:50px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .logo-text{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--blue);letter-spacing:1px}
 .logo-sub{font-size:11px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;font-weight:600}
 .nav{display:flex;align-items:center;gap:28px}
@@ -61,18 +62,18 @@ img{max-width:100%;display:block}
 .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;position:relative;z-index:1}
 .hero-tag{display:inline-block;padding:6px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:50px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
 .hero h1{font-size:48px;color:var(--white);margin-bottom:20px;line-height:1.15}
-.hero h1 span{color:#ffd700}
+.hero h1 span{color:var(--accent-light)}
 .hero-desc{font-size:17px;opacity:.9;margin-bottom:32px;max-width:560px}
 .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer;border:2px solid transparent;transition:var(--transition);letter-spacing:.5px;text-transform:uppercase}
 .btn-white{background:var(--white);color:var(--blue)}
-.btn-white:hover{background:var(--light-gray);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-outline-white{background:transparent;color:var(--white);border-color:var(--white)}
 .btn-outline-white:hover{background:var(--white);color:var(--blue)}
 .btn-blue{background:var(--blue);color:var(--white)}
 .btn-blue:hover{background:var(--blue-dark);transform:translateY(-2px)}
 .hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.2)}
-.hero-stat .num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:#ffd700}
+.hero-stat .num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:var(--accent-light)}
 .hero-stat .label{font-size:13px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
 .hero-visual{position:relative}
 .hero-card{background:var(--white);border-radius:12px;padding:32px;box-shadow:var(--shadow-lg);color:var(--text)}
@@ -90,7 +91,7 @@ img{max-width:100%;display:block}
 .category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .category-card{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;transition:var(--transition);box-shadow:var(--shadow);height:280px}
 .category-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.category-card-img{width:100%;height:100%;background:linear-gradient(135deg,var(--light-gray),#e8eaf0);display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
+.category-card-img{width:100%;height:100%;background:linear-gradient(135deg,var(--cream),var(--light-gray));display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
 .category-card-label{position:absolute;bottom:0;left:0;right:0;background:var(--blue);color:var(--white);padding:16px 20px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center}
 .category-card:hover .category-card-label{background:var(--blue-dark)}
 
@@ -164,11 +165,11 @@ img{max-width:100%;display:block}
 .form-group{margin-bottom:16px}
 .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:rgba(255,255,255,.9)}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:var(--white);font-size:14px;font-family:'Open Sans',sans-serif;transition:var(--transition)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#ffd700;background:rgba(255,255,255,.15)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent-light);background:rgba(255,255,255,.15)}
 .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.5)}
 .form-group select option{background:var(--blue);color:var(--white)}
-.form-submit{width:100%;padding:14px;background:#ffd700;color:var(--blue-dark);border:none;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:var(--transition);text-transform:uppercase;letter-spacing:1px}
-.form-submit:hover{background:#ffed4e;transform:translateY(-2px)}
+.form-submit{width:100%;padding:14px;background:var(--accent);color:var(--white);border:none;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:var(--transition);text-transform:uppercase;letter-spacing:1px}
+.form-submit:hover{background:var(--accent-dark);transform:translateY(-2px)}
 
 /* Footer */
 .footer{background:var(--blue-dark);color:rgba(255,255,255,.7);padding:60px 0 24px}
@@ -182,7 +183,7 @@ img{max-width:100%;display:block}
 .footer-col a{display:block;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:12px;transition:var(--transition)}
 .footer-col a:hover{color:#ffd700}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:12px}
-.footer-bottom a{color:#ffd700}
+.footer-bottom a{color:var(--accent-light)}
 
 /* WhatsApp Float */
 .whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--white);box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;z-index:999;transition:var(--transition);text-decoration:none}
@@ -251,7 +252,17 @@ img{max-width:100%;display:block}
 <div class="container">
 <div class="header-inner">
 <a href="#home" class="logo">
-<div class="logo-mark">LB</div>
+<div class="logo-mark">
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="25" cy="25" r="24" fill="#5B7B9A"/>
+<circle cx="25" cy="25" r="22" stroke="#C49A7B" stroke-width="1" opacity="0.5"/>
+<path d="M33 17C28.5 15.5 23.5 17.5 21.5 22C19.5 26.5 21.5 31.5 26 33.5C24 30 24 25.5 26.5 22.5C29 19.5 32.5 19 33 17Z" fill="#F8F4EE"/>
+<circle cx="36" cy="15" r="1.5" fill="#C49A7B"/>
+<circle cx="39" cy="21" r="1" fill="#C49A7B"/>
+<circle cx="34" cy="27" r="0.8" fill="#C49A7B" opacity="0.7"/>
+<text x="25" y="42" text-anchor="middle" fill="#F8F4EE" font-family="Montserrat, sans-serif" font-size="7" font-weight="700" letter-spacing="1">LB</text>
+</svg>
+</div>
 <div>
 <div class="logo-text">LUNA BELLA</div>
 <div class="logo-sub" data-i18n="logo-sub">Baby & Kids Wholesaler</div>
@@ -604,7 +615,7 @@ img{max-width:100%;display:block}
 <section class="contact" id="contact">
 <div class="container">
 <div class="section-header">
-<div class="section-tag" style="background:rgba(255,255,255,.15);color:#ffd700" data-i18n="contact_tag">Get In Touch</div>
+<div class="section-tag" style="background:rgba(255,255,255,.15);color:var(--accent-light)" data-i18n="contact_tag">Get In Touch</div>
 <h2 class="section-title" data-i18n="contact_title">Request a Wholesale Quote</h2>
 <p class="section-desc" data-i18n="contact_desc">Tell us your needs and we'll send a detailed quote within 24 hours.</p>
 </div>
